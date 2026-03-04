@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay[wght].woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans[wght].woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Warm amber notebook palette - light mode */
+    --background: 0.97 0.012 85;
+    --foreground: 0.22 0.04 55;
+
+    --card: 0.99 0.008 80;
+    --card-foreground: 0.22 0.04 55;
+
+    --popover: 0.99 0.008 80;
+    --popover-foreground: 0.22 0.04 55;
+
+    --primary: 0.62 0.16 55;
+    --primary-foreground: 0.99 0 0;
+
+    --secondary: 0.93 0.025 85;
+    --secondary-foreground: 0.35 0.06 55;
+
+    --muted: 0.92 0.018 80;
+    --muted-foreground: 0.52 0.04 60;
+
+    --accent: 0.72 0.18 75;
+    --accent-foreground: 0.18 0.04 45;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.02 75;
+    --input: 0.9 0.02 75;
+    --ring: 0.62 0.16 55;
+
+    /* Amber tones */
+    --amber-100: 0.96 0.03 85;
+    --amber-200: 0.9 0.06 80;
+    --amber-300: 0.82 0.12 75;
+    --amber-400: 0.72 0.18 70;
+    --amber-500: 0.62 0.16 55;
+    --amber-600: 0.52 0.14 50;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.94 0.018 82;
+    --sidebar-foreground: 0.22 0.04 55;
+    --sidebar-primary: 0.62 0.16 55;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.9 0.025 80;
+    --sidebar-accent-foreground: 0.35 0.06 55;
+    --sidebar-border: 0.88 0.02 75;
+    --sidebar-ring: 0.62 0.16 55;
+  }
+
+  .dark {
+    --background: 0.16 0.025 45;
+    --foreground: 0.93 0.015 75;
+
+    --card: 0.2 0.028 48;
+    --card-foreground: 0.93 0.015 75;
+
+    --popover: 0.22 0.03 48;
+    --popover-foreground: 0.93 0.015 75;
+
+    --primary: 0.78 0.14 75;
+    --primary-foreground: 0.18 0.04 45;
+
+    --secondary: 0.25 0.032 48;
+    --secondary-foreground: 0.88 0.012 75;
+
+    --muted: 0.24 0.028 48;
+    --muted-foreground: 0.62 0.04 65;
+
+    --accent: 0.72 0.18 75;
+    --accent-foreground: 0.15 0.03 40;
+
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.18 0.03 45;
+
+    --border: 1 0 0 / 12%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.78 0.14 75;
+
+    /* Dark mode amber tones */
+    --amber-100: 0.26 0.04 55;
+    --amber-200: 0.32 0.06 60;
+    --amber-300: 0.52 0.12 65;
+    --amber-400: 0.68 0.16 72;
+    --amber-500: 0.78 0.14 75;
+    --amber-600: 0.86 0.12 80;
+
+    --chart-1: 0.488 0.243 264.376;
+    --chart-2: 0.696 0.17 162.48;
+    --chart-3: 0.769 0.188 70.08;
+    --chart-4: 0.627 0.265 303.9;
+    --chart-5: 0.645 0.246 16.439;
+
+    --sidebar: 0.2 0.028 48;
+    --sidebar-foreground: 0.93 0.015 75;
+    --sidebar-primary: 0.78 0.14 75;
+    --sidebar-primary-foreground: 0.18 0.04 45;
+    --sidebar-accent: 0.25 0.032 48;
+    --sidebar-accent-foreground: 0.88 0.012 75;
+    --sidebar-border: 1 0 0 / 12%;
+    --sidebar-ring: 0.78 0.14 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Playfair Display", serif;
+  }
+
+  .font-body {
+    font-family: "General Sans", sans-serif;
+  }
+
+  /* Paper texture overlay */
+  .paper-texture {
+    position: relative;
+  }
+  .paper-texture::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 0;
+  }
+  .paper-texture > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Note card subtle shadow */
+  .note-shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.06), 0
+      1px 0 rgba(255, 255, 255, 0.5) inset;
+  }
+
+  .dark .note-shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25), 0
+      1px 0 rgba(255, 255, 255, 0.04) inset;
+  }
+
+  /* Masonry grid */
+  .masonry-grid {
+    columns: 1;
+    column-gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .masonry-grid {
+      columns: 2;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .masonry-grid {
+      columns: 3;
+    }
+  }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  /* Pinned note glow */
+  .pinned-note {
+    outline: 2px solid oklch(var(--primary));
+    outline-offset: 1px;
+  }
+
+  /* FAB button */
+  .fab-shadow {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18), 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: oklch(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(var(--muted-foreground) / 0.5);
+  }
+
+  /* Upload progress animation */
+  @keyframes progress-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-progress-pulse {
+    animation: progress-pulse 1.5s ease-in-out infinite;
+  }
+
+  /* Login page radial background */
+  .login-bg {
+    background: radial-gradient(
+        ellipse at 20% 50%,
+        oklch(var(--primary) / 0.12) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse at 80% 20%,
+        oklch(var(--accent) / 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 60% 80%,
+        oklch(var(--primary) / 0.08) 0%,
+        transparent 50%
+      ), oklch(var(--background));
+  }
+}
